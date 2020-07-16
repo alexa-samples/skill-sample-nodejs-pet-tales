@@ -1,0 +1,63 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "This document contains details for the selected animal type while in the pet shop",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Sequencer",
+      "items": [
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak>${payload.data.properties.alexasResponse}</speak>"
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.shopKeeperRightThisWay}</speak>"
+        },
+        {
+          "type": "Sequencer",
+          "description": "plays a series of animal sounds",
+          "data": "${payload.data.properties.animalSounds}",
+          "item": {
+            "type": "Audio",
+            "source": "${data}"
+          }
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.animalsAvailableCount}</speak>"
+        },
+        {
+          "type": "Sequencer",
+          "description": "presenting each animal available one at a time",
+          "data": "${payload.data.properties.animalIntros}",
+          "items": [{
+            "type": "Sequencer",
+            "items": [
+              {
+                "type": "Speech",
+                "contentType": "SSML",
+                "content": "<speak><break time='.5s' />${data.speech}</speak>"
+              },
+              {
+                "type": "Audio",
+                "source": "${data.sound}"
+              }
+            ]
+          }]
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.hearMorePrompt}</speak>"
+        }
+      ]
+    }
+  }
+}

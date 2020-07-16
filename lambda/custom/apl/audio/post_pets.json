@@ -1,0 +1,38 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "A pet's response after receiving a few pets",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Sequencer",
+      "items": [
+        {
+          "type": "Sequencer",
+          "data": "${payload.data.properties.petsResponse}",
+          "item": {
+            "type": "Selector",
+            "items": [{
+              "when": "${data.type == 'Audio'}",
+              "type": "Audio",
+              "source": "${data.source}"
+            }, {
+              "when": "${data.type == 'Speech'}",
+              "type": "Speech",
+              "contentType": "${data.contentType}",
+              "content": "${data.content}"
+            }]
+          }
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time=\"1s\"/>${payload.data.properties.petAgain}</speak>"
+        }
+
+      ]
+    }
+  }
+}

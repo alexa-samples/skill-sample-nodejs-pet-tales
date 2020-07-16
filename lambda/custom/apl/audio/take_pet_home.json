@@ -1,0 +1,81 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "This document contains the response for when the user selects an animal to take home",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Sequencer",
+      "items": [
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak>${payload.data.properties.alexasResponse}</speak>"
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.petShopKeepersResponse}</speak>"
+        },
+        {
+          "type": "Mixer",
+          "description": "Travel from pet shop to house",
+          "items": [
+            {
+              "type": "Audio",
+              "description": "Footsteps",
+              "source": "soundbank://soundlibrary/footsteps/concrete/concrete_04"
+            },
+            {
+              "type": "Selector",
+              "items": [
+                {
+                  "type": "Audio",
+                  "when": "${payload.isDayTime}",
+                  "description": "Birds chirping that only plays during the day",
+                  "source": "soundbank://soundlibrary/animals/amzn_sfx_bird_forest_01"
+                },
+                {
+                  "type": "Audio",
+                  "description": "Cricket sounds at night",
+                  "source": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/audio/crickets-short.mp3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Audio",
+          "description": "Door opening sound effect",
+          "source": "soundbank://soundlibrary/doors/doors_swing_doors/swing_doors_01"
+        },
+        {
+          "type": "Audio",
+          "description": "Sound from the newly adopted pet",
+          "source": "${payload.data.properties.pet.sound}"
+        },
+        {
+          "type": "Speech",
+          "description": "The newly adopted pet's response",
+          "contentType": "SSML",
+          "content": "<speak>${payload.data.properties.petAtHomeResponse}</speak>"
+        },
+        {
+          "type": "Speech",
+          "description": "A prompt if another pet was set back to the shop",
+          "when": "${payload.data.properties.sentBackPrompt}",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.sentBackPrompt}</speak>"
+        },
+        {
+          "type": "Speech",
+          "description": "Prompt the user to play again",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.playAgainPrompt}</speak>"
+        }
+      ]
+    }
+  }
+}

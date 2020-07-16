@@ -1,0 +1,342 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "pet tales",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                },
+                {
+                    "name": "VisitPetShopIntent",
+                    "slots": [
+                        {
+                            "name": "type",
+                            "type": "AnimalType"
+                        }
+                    ],
+                    "samples": [
+                        "visit",
+                        "visit pet store",
+                        "visit the pet store",
+                        "go to the pet shop",
+                        "go to the pet store",
+                        "get more pets",
+                        "adopt more pets",
+                        "get more {type}",
+                        "adopt more {type}",
+                        "get another {type}",
+                        "adopt another {type}"
+                    ]
+                },
+                {
+                    "name": "GivePetsIntent",
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "Action"
+                        },
+                        {
+                            "name": "name",
+                            "type": "Name"
+                        }
+                    ],
+                    "samples": [
+                        "{action} him",
+                        "{action} her",
+                        "{action} {name}",
+                        "{action} {name} again",
+                        "{action} animal",
+                        "{action} again",
+                        "{action} with him",
+                        "{action} with her",
+                        "{action} with {name}",
+                        "{action} with {name} again",
+                        "yes {action} him",
+                        "yes {action} her",
+                        "yes {action} {name}",
+                        "yes {action} {name} again",
+                        "yes {action} animal",
+                        "yes {action} again",
+                        "yes {action} with him",
+                        "yes {action} with her",
+                        "yes {action} with {name}",
+                        "yes {action} with {name} again"
+                    ]
+                },
+                {
+                    "name": "BrowsePetsByTypeIntent",
+                    "slots": [
+                        {
+                            "name": "type",
+                            "type": "AnimalType"
+                        }
+                    ],
+                    "samples": [
+                        "{type}",
+                        "a {type}",
+                        "let's get a {type}",
+                        "i'd like a {type}",
+                        "how about a {type}",
+                        "show me {type}",
+                        "show me the {type}",
+                        "show me your {type}",
+                        "show me the {type} instead",
+                        "show me your {type} instead",
+                        "let's see {type}",
+                        "let's see the {type}",
+                        "let's see your {type}",
+                        "let's see the {type} instead",
+                        "let's see your {type} instead",
+                        "what {type} do you have",
+                        "more {type}"
+                    ]
+                },
+                {
+                    "name": "LearnMoreAboutPetIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "Name"
+                        }
+                    ],
+                    "samples": [
+                        "{name}",
+                        "learn more about {name}",
+                        "yes i want to learn more about {name}",
+                        "yes i want to hear more about {name}",
+                        "i want to hear more about {name}",
+                        "i want to learn more about {name}",
+                        "show me {name}",
+                        "tell me about {name}"
+                    ]
+                },
+                {
+                    "name": "AdoptPetIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "Name"
+                        }
+                    ],
+                    "samples": [
+                        "i want {name}",
+                        "i'd like to adopt {name}",
+                        "i pick {name}",
+                        "yes take him home",
+                        "yes take her home",
+                        "yes take {name} home",
+                        "take him home",
+                        "take her home",
+                        "take {name} home"
+                    ]
+                }
+            ],
+            "types": [{
+                "name": "Action",
+                "values": [{
+                    "id": "pet",
+                    "name": {
+                        "value": "pet",
+                        "synonyms": [
+                            "play",
+                            "tickle",
+                            "pat",
+                            "rub",
+                            "snuggle"
+                        ]
+                    }
+                }]
+            },{
+                "name": "AnimalType",
+                "values": [
+                    {
+                        "id": "dog",
+                        "name": {
+                            "value": "dog",
+                            "synonyms": [
+                                "puppy",
+                                "dogs",
+                                "puppies"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "cat",
+                        "name": {
+                            "value": "cat",
+                            "synonyms": [
+                                "kitten",
+                                "cats",
+                                "kittens"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "rare_collection",
+                        "name": {
+                            "value": "rare collection",
+                            "synonyms": [
+                                "rare",
+                                "rare pet",
+                                "exotic pet",
+                                "exotic collection",
+                                "rare animal",
+                                "exotic animal",
+                                "exotic animals",
+                                "rare pets",
+                                "exotic pets",
+                                "unique pets",
+                                "special pets",
+                                "weird pets",
+                                "different pets",
+                                "rare animals",
+                                "unique animals",
+                                "special animals",
+                                "weird animals",
+                                "different animals",
+                                "rare collection",
+                                "unique collection",
+                                "special collection",
+                                "weird collection",
+                                "different collection",
+                                "bird",
+                                "birds",
+                                "rabbit",
+                                "rabbits",
+                                "bunny",
+                                "bunnies",
+                                "snake",
+                                "snakes"
+                            ]
+                        }
+                    }
+                ]
+            }, {
+                "name": "Name",
+                "values": [
+                    {
+                        "id": "RASCAL",
+                        "name": {
+                            "value": "rascal",
+                            "synonyms": [
+                                "rascal the beagle",
+                                "beagle",
+                                "the beagle"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "BONBON",
+                        "name": {
+                            "value": "bonbon",
+                            "synonyms": [
+                                "bonbon the poodle",
+                                "poodle",
+                                "the poodle"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "LARRY",
+                        "name": {
+                            "value": "larry",
+                            "synonyms": [
+                                "larry the chihuahua",
+                                "chihuahua",
+                                "the chihuahua"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "CHESTER",
+                        "name": {
+                            "value": "chester",
+                            "synonyms": [
+                                "chester the british short hair",
+                                "british short hair",
+                                "the british short hair"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "BELLE",
+                        "name": {
+                            "value": "belle",
+                            "synonyms": [
+                                "belle the ragdoll",
+                                "ragdoll",
+                                "the ragdoll"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "KOKO",
+                        "name": {
+                            "value": "koko",
+                            "synonyms": [
+                                "koko the miniature cat",
+                                "miniature cat",
+                                "the miniature cat"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "SCALES",
+                        "name": {
+                            "value": "scales",
+                            "synonyms": [
+                                "scales the snake",
+                                "snake",
+                                "the snake"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "FEATHERS",
+                        "name": {
+                            "value": "feathers",
+                            "synonyms": [
+                                "feathers the bird",
+                                "bird",
+                                "the bird"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "HOPS",
+                        "name": {
+                            "value": "hops",
+                            "synonyms": [
+                                "hops the bunny",
+                                "bunny",
+                                "the bunny"
+                            ]
+                        }
+                    }
+                ]
+            }]
+        }
+    }
+}
+  

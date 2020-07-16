@@ -1,0 +1,105 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-AU": {
+          "summary": "A sample multi-turn experience using APL and APL for Audio",
+          "examplePhrases": [
+            "Alexa open Pet Tales"
+          ],
+          "name": "Pet Tales",
+          "description": "A sample multi-turn experience using APL and APL for Audio"
+        },
+        "en-CA": {
+          "summary": "A sample multi-turn experience using APL and APL for Audio",
+          "examplePhrases": [
+            "Alexa open Pet Tales"
+          ],
+          "name": "Pet Tales",
+          "description": "A sample multi-turn experience using APL and APL for Audio"
+        },
+        "en-GB": {
+          "summary": "A sample multi-turn experience using APL and APL for Audio",
+          "examplePhrases": [
+            "Alexa open Pet Tales"
+          ],
+          "name": "Pet Tales",
+          "description": "A sample multi-turn experience using APL and APL for Audio"
+        },
+        "en-IN": {
+          "summary": "A sample multi-turn experience using APL and APL for Audio",
+          "examplePhrases": [
+            "Alexa open Pet Tales"
+          ],
+          "name": "Pet Tales",
+          "description": "A sample multi-turn experience using APL and APL for Audio"
+        },
+        "en-US": {
+          "summary": "A sample multi-turn experience using APL and APL for Audio",
+          "examplePhrases": [
+            "Alexa open Pet Tales"
+          ],
+          "name": "Pet Tales",
+          "description": "A sample multi-turn experience using APL and APL for Audio"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "category": "PETS_AND_ANIMAL",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {},
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_APL",
+            "supportedViewports": [
+              {
+                "mode": "HUB",
+                "shape": "ROUND",
+                "minWidth": 480,
+                "maxWidth": 480,
+                "minHeight": 480,
+                "maxHeight": 480
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 1024,
+                "maxWidth": 1024,
+                "minHeight": 600,
+                "maxHeight": 600
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 1280,
+                "maxWidth": 1280,
+                "minHeight": 800,
+                "maxHeight": 800
+              },
+              {
+                "mode": "TV",
+                "shape": "RECTANGLE",
+                "minWidth": 960,
+                "maxWidth": 960,
+                "minHeight": 540,
+                "maxHeight": 540
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 960,
+                "maxWidth": 960,
+                "minHeight": 480,
+                "maxHeight": 480
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": []
+  }
+}

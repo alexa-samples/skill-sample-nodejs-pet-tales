@@ -1,0 +1,48 @@
+{
+  "type": "APL",
+  "description": "Title scene when a user launches the skill and doesn't yet have any pets",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "items": [
+          {
+            "type": "AlexaBackground",
+            "backgroundImageSource": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Misc/title_bg.png",
+            "overlayNoise": false
+          },
+          {
+            "type": "Image",
+            "source": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Misc/pet_tales_font.png",
+            "position": "absolute",
+            "scale": "best-fit",
+            "width": "40%",
+            "height": "30%"
+          }
+        ]
+      }
+    ]
+  }
+}

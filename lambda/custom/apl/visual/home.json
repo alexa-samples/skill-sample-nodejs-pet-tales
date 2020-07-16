@@ -1,0 +1,100 @@
+{
+  "type": "APL",
+  "description": "Scene at home with one or more pets",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [
+    {
+      "string": {
+        "dayHome": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Landscapes/Home_DAY.png",
+        "nightHome": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Landscapes/Home_NIGHT.png"
+      }
+    }
+  ],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "alignItems": "center",
+        "items": [
+          {
+            "type": "AlexaBackground",
+            "description": "Support for day and night scenes",
+            "backgroundImageSource": "${payload.data.properties.isDayTime == true ? '@dayHome' : '@nightHome'}",
+            "overlayNoise": false
+          },
+          {
+            "type": "Container",
+            "description": "Container for all of the pets; up to four supported",
+            "width": "100%",
+            "height": "100%",
+            "position": "absolute",
+            "justifyContent": "center",
+            "top": "80dp",
+            "bind": [
+              {
+                "name": "positions",
+                "value": [
+                  {
+                    "width": "125dp",
+                    "height": "125dp",
+                    "top": "40%",
+                    "left": "15%"
+                  },
+                  {
+                    "width": "130dp",
+                    "height": "130dp",
+                    "top": "40%",
+                    "left": "40%"
+                  },
+                  {
+                    "width": "135dp",
+                    "height": "135dp",
+                    "top": "40%",
+                    "left": "73%"
+                  },
+                  {
+                    "width": "85dp",
+                    "height": "85dp",
+                    "top": "65%",
+                    "left": "5%"
+                  }
+                ]
+              }
+            ],
+            "data": "${payload.data.properties.adoptedPets}",
+            "numbered": true,
+            "item": {
+              "type": "Image",
+              "description": "Image for a single pet is based on time of day",
+              "source": "${payload.data.properties.isDayTime == true ? data.awakeSrc : data.sleepSrc}",
+              "position": "absolute",
+              "scale": "best-fit",
+              "width": "${positions[ordinal-1].width}",
+              "height": "${positions[ordinal-1].height}",
+              "top": "${positions[ordinal-1].top}",
+              "left": "${positions[ordinal-1].left}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

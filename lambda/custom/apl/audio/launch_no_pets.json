@@ -1,0 +1,36 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "The response that plays when a user launches Pet Tales and has not adopted any pets yet",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Mixer",
+      "description": "Alexa greets the user while background music plays",
+      "items": [
+        {
+          "type": "Sequencer",
+          "items": [
+            {
+              "type": "Speech",
+              "contentType": "SSML",
+              "content": "<speak>${payload.data.properties.genericGreeting}</speak>"
+            },
+            {
+              "type": "Speech",
+              "contentType": "SSML",
+              "content": "<speak>${payload.data.properties.askToVisitPetShop}</speak>"
+            }
+          ]
+        },
+        {
+          "type": "Audio",
+          "description": "Background music",
+          "source": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/audio/house-music-first-time.mp3"
+        }
+      ]
+    }
+  }
+}

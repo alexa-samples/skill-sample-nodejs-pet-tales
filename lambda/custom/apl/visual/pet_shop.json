@@ -1,0 +1,38 @@
+{
+  "type": "APL",
+  "description": "Simple pet shop scene consisting of a background image",
+  "version": "1.1",
+  "settings": {},
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "resources": [],
+  "styles": {},
+  "onMount": [],
+  "graphics": {},
+  "commands": {},
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "items": [
+          {
+            "type": "AlexaBackground",
+            "backgroundImageSource": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Landscapes/Shop_DAY.png",
+            "overlayNoise": false
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "type": "APL",
+  "description": "Scene that shows all animals available in a category",
+  "version": "1.3",
+  "theme": "dark",
+  "import": [
+    {
+      "name": "alexa-layouts",
+      "version": "1.1.0"
+    }
+  ],
+  "layouts": {
+    "HorizontalGridItem": {
+      "parameters": [
+        {
+          "name": "pet"
+        }
+      ],
+      "items": [
+        {
+          "type": "Frame",
+          "width": "33.3%",
+          "height": "250dp",
+          "direction": "column",
+          "backgroundColor": "#CFBE84",
+          "borderColor": "#F3E2A9",
+          "borderWidth": "15",
+          "item": [
+            {
+              "when": "${pet != null}",
+              "type": "Container",
+              "width": "100%",
+              "height": "100%",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "items": [
+                {
+                  "type": "Image",
+                  "width": "100%",
+                  "height": "80%",
+                  "source": "${pet.awakeSrc}",
+                  "scale": "best-fit",
+                  "align": "center"
+                },
+                {
+                  "type": "Text",
+                  "fontWeight": "200",
+                  "fontSize": "20dp",
+                  "text": "${pet.name}",
+                  "position": "absolute",
+                  "bottom": "3dp",
+                  "right": "10dp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "alignItems": "center",
+        "items": [
+          {
+            "type": "AlexaBackground",
+            "backgroundImageSource": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/Landscapes/Shop_Choose_Pets.png",
+            "overlayNoise": false
+          },
+          {
+            "type": "Container",
+            "width": "100%",
+            "height": "100%",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "position": "absolute",
+            "items": [
+              {
+                "type": "Text",
+                "text": "${payload.data.properties.displayTitle}"
+              },
+              {
+                "type": "Frame",
+                "borderRadius": "6dp",
+                "height": "360dp",
+                "width": "80%",
+                "top": "3%",
+                "justifyContent": "center",
+                "alignItems": "center",
+                "item": {
+                  "type": "Container",
+                  "height": "100%",
+                  "width": "100%",
+                  "direction": "column",
+                  "numbered": true,
+                  "items": [
+                    {
+                      "type": "Container",
+                      "description": "A row of for up to three pets",
+                      "direction": "row",
+                      "bind": [
+                        {
+                          "name": "pets",
+                          "value": "${payload.data.properties.pets}"
+                        }
+                      ],
+                      "items": [
+                        {
+                          "type": "HorizontalGridItem",
+                          "pet": "${pets.length > 0 ? pets[0] : null}"
+                        },
+                        {
+                          "type": "HorizontalGridItem",
+                          "pet": "${pets.length > 1 ? pets[1] : null}"
+                        },
+                        {
+                          "type": "HorizontalGridItem",
+                          "pet": "${pets.length > 2 ? pets[2] : null}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

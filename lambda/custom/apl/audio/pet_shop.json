@@ -1,0 +1,64 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "This document contains the response when a user wants to travel from the house to the pet shop.",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Sequencer",
+      "items": [
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak>${payload.data.properties.prefix}</speak>"
+        },
+        {
+          "type": "Audio",
+          "description": "shop door opening",
+          "source": "soundbank://soundlibrary/doors/doors_swing_doors/swing_doors_01"
+        },
+        {
+          "type": "Mixer",
+          "items": [
+            {
+              "type": "Audio",
+              "description": "Background music",
+              "source": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/audio/shop-music-2.mp3"
+            },
+            {
+              "type": "Sequencer",
+              "description": "Alexa and the pet shop keeper's responses",
+              "items": [
+                {
+                  "type": "Speech",
+                  "contentType": "SSML",
+                  "content": "<speak>${payload.data.properties.shopKeeperGreeting}</speak>"
+                },
+                {
+                  "type": "Speech",
+                  "contentType": "SSML",
+                  "content": "<speak><break time='.5s'/>${payload.data.properties.alexaPrompt}</speak>"
+                }
+              ]
+            },
+            {
+              "type": "Sequencer",
+              "description": "Plays a series of animal sounds",
+              "data": "${payload.data.properties.animalSounds}",
+              "item": {
+                "type": "Audio",
+                "source": "${data}",
+                "filter": {
+                  "type": "Volume",
+                  "amount": "50%"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

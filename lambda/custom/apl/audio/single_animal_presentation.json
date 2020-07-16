@@ -1,0 +1,37 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "The document contains the details of a single animal the user wants to know more about",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Sequencer",
+      "items": [
+        {
+          "type": "Sequencer",
+          "data": "${payload.data.properties.animalsResponse}",
+          "item": {
+            "type": "Selector",
+            "items": [{
+              "when": "${data.type == 'Audio'}",
+              "type": "Audio",
+              "source": "${data.source}"
+            }, {
+              "when": "${data.type == 'Speech'}",
+              "type": "Speech",
+              "contentType": "${data.contentType}",
+              "content": "${data.content}"
+            }]
+          }
+        },
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><break time='1s' />${payload.data.properties.chooseAnimalPrompt}</speak>"
+        }
+      ]
+    }
+  }
+}

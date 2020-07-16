@@ -1,0 +1,54 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "The response that plays when a user launches Pet Tales and has one or more adopted pets",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "item": {
+      "type": "Mixer",
+      "description": "Alexa greets the user while background music plays",
+      "items": [
+        {
+          "type": "Sequencer",
+          "items": [
+            {
+              "type": "Speech",
+              "contentType": "SSML",
+              "content": "<speak>${payload.data.properties.genericReturnGreeting}</speak>"
+            },
+            {
+              "type": "Speech",
+              "contentType": "SSML",
+              "content": "<speak>${payload.data.properties.givePets}</speak>"
+            }
+          ]
+        },
+        {
+          "type": "Audio",
+          "description": "Background music",
+          "source": "https://veoxmbq.s3.amazonaws.com/pet-tales/assets/audio/house-music-short-fade-out.mp3",
+          "filter": {
+            "type": "Volume",
+            "amount": "50%"
+          }
+        },
+        {
+          "type": "Sequencer",
+          "when": "${payload.data.properties.isDayTime}",
+          "description": "The pets are sleeping at night, so only play sounds during the day",
+          "data": "${payload.data.properties.adoptedPets}",
+          "item": {
+            "type": "Audio",
+            "source": "${data.sound}",
+            "filter": {
+              "type": "Volume",
+              "amount": "50%"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

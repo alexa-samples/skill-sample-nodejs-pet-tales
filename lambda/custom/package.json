@@ -1,0 +1,27 @@
+{
+  "name": "pet-tales-skill-template",
+  "version": "1.1.0",
+  "description": "Lambda function for an Alexa skill",
+  "main": "index.js",
+  "author": "Amazon.com",
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore ..",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "Amazon Software License",
+  "dependencies": {
+    "ask-sdk": "2.7.0",
+    "ask-sdk-core": "^2.6.0",
+    "ask-sdk-model": "^1.18.0",
+    "ask-sdk-s3-persistence-adapter": "2.8.0",
+    "aws-sdk": "2.637.0",
+    "axios": "0.19.2",
+    "i18next": "19.1.0",
+    "lodash": "4.17.15",
+    "moment": "2.24.0",
+    "moment-timezone": "0.5.31"
+  },
+  "devDependencies": {
+    "eslint": "7.1.0"
+  }
+}
