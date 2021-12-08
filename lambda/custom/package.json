@@ -14,7 +14,7 @@
     "ask-sdk-core": "^2.6.0",
     "ask-sdk-model": "^1.18.0",
     "ask-sdk-s3-persistence-adapter": "2.8.0",
-    "aws-sdk": "2.637.0",
+    "aws-sdk": "2.814.0",
     "axios": "0.21.1",
     "i18next": "19.1.0",
     "lodash": "4.17.19",
